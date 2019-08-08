@@ -1,0 +1,41 @@
+<form (ngSubmit)="submit()">
+    <div ngModelGroup="persoonlijkCommand">
+    <div *ngFor="let field of fields" class="fieldRow">
+        <label class="fieldLabel">
+            {{field.label}}
+            <span *ngIf="field.isRequired">*</span>
+            <span *ngIf="!field.isRequired">&nbsp;</span>
+        </label>
+        
+        <div [ngSwitch]="field.constructor.name" class="fieldInput">
+            <div *ngSwitchCase="'InputFieldConfig'" class="fieldWidgetContainer">
+                <input type="text" class="fieldWidget" [name]= "field.name" [ngModel]="getModel(field.name)" (ngModelChange)="setModel(field.name, $event)"/>
+            </div>
+            <div *ngSwitchCase="'DateFieldConfig'">
+                <input type="text" class="fieldWidget" [name]= "field.name" [ngModel]="getModel(field.name)" (ngModelChange)="setModel(field.name, $event)"/>
+            </div>
+            <div *ngSwitchCase="'CheckFieldConfig'">
+                <input type="checkbox" [name]= "field.name" [ngModel]="getModel(field.name)" (ngModelChange)="setModel(field.name, $event)"/>
+            </div>
+            <div *ngSwitchCase="'SelectFieldConfig'" class="fieldWidgetContainer">
+                <select class="fieldWidget" [name]= "field.name" [ngModel]="getModel(field.name)" (ngModelChange)="setModel(field.name, $event)">
+                    <option *ngFor="let option of field.options" [value]="option">
+                        {{option}}
+                    </option>
+                </select>
+            </div>
+            <div *ngSwitchCase="'RadioFieldConfig'" class="fieldWidgetContainer">
+                <div *ngFor="let option of field.options">
+                    <input type="radio" [name]= "field.name" [ngModel]="getModel(field.name)" (ngModelChange)="setModel(field.name, $event)" [value]="option"/>
+                    <label>{{option}}</label>
+                </div>
+            </div>
+            <div *ngSwitchDefault>--{{field.constructor.name}}</div>
+            <div *ngIf="field.hasInfoText()">{{field.infoText}}</div>
+        </div>
+        <div *ngIf="field.hasHelpText()" class="fieldHelpText">[H]</div>
+    </div>
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+    

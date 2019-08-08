@@ -1,0 +1,30 @@
+.fieldRow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldLabel {
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.fieldInput {
+    display: inline-block;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.fieldHelpText {
+    display: inline-block;
+}
+
+.fieldWidgetContainer {
+    width: 100%;
+}
+
+.fieldWidget {
+    width: 100%;
+}
