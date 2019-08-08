@@ -19,6 +19,9 @@ export class MenuGroupComponent implements OnInit {
   }
 
   isThisMenuSelected(menuName: string): boolean {
+    if (this.selectedMenu == null) {
+      return menuName === "Inleiding";
+    }
     return menuName === this.selectedMenu;
   }
 }
