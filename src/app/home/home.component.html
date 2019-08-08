@@ -1,0 +1,38 @@
+<div style="text-align:center">
+    <h1>
+        Aanmelder Application
+    </h1>
+</div>
+<div class="topDiv">
+    <div class="containerDiv">
+        <div class="menuDiv">
+            <menu-group [groupName]="'Aanvraag'" [selectedMenu]="selectedMenu"></menu-group>
+        </div>
+        <div class="contentDiv" [ngSwitch]="selectedMenu">
+            <div *ngSwitchCase="'Persoonlijk'">
+                <app-persoonlijk></app-persoonlijk>
+            </div>
+            <div *ngSwitchCase="'Relaties'">
+                <app-relaties></app-relaties>
+            </div>
+            <div *ngSwitchCase="'Adres'">
+                <app-adres></app-adres>
+            </div>
+            <div *ngSwitchCase="'Huisarts'">
+                <app-huisarts></app-huisarts>
+            </div>
+            <div *ngSwitchCase="'Verzekeraar'">
+                <app-verzekeraar></app-verzekeraar>
+            </div>
+            <div *ngSwitchCase="'Zorgvraag'">
+                <app-zorgvraag></app-zorgvraag>
+            </div>
+            <div *ngSwitchCase="'Toestemming'">
+                <app-toestemming></app-toestemming>
+            </div>
+            <div *ngSwitchCase="'Indienen'">
+                <app-indienen></app-indienen>
+            </div>
+        </div>
+    </div>
+</div>

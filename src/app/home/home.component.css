@@ -1,0 +1,22 @@
+* {
+    border: 1px solid red;
+}
+
+.topDiv {
+    width: 100%;
+    display: table;
+}
+
+.containerDiv {
+    display: table-row;
+    width: 100%;
+}
+
+.menuDiv {
+    display: table-cell;
+    width: 20%;
+}
+
+.contentDiv {
+    display: table-cell;
+}
