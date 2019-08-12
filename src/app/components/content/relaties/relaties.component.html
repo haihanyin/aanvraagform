@@ -1,1 +1,33 @@
-<p>relaties works!</p>
+<form [formGroup]="partnerGroup" (ngSubmit)="onSubmit()">
+    <div>
+        Geboortedatum:
+        <input type="text" formControlName="geboortedatum" />
+        {{partnerGroup.value.geboortedatum}}
+    </div>
+
+    <div>
+        Geboortenaam:
+        <input type="text" formControlName="geboortenaam" />
+    </div>
+
+    <div>
+        Voorletters:
+        <input type="text" formControlName="voorletters" />
+    </div>
+
+    <div>
+        Voorvoegsel:
+        <input type="text" formControlName="voorvoegsel" />
+    </div>
+
+    <div>
+        Geslacht:
+        <input type="text" formControlName="geslacht" />
+    </div>
+
+    <div>
+        Telefoonnummer:
+        <input type="text" formControlName="telefoonnummer" />
+    </div>
+    <button type="submit">submit</button>
+</form>

@@ -12,14 +12,15 @@ import { ZorgvraagComponent } from '../content/zorgvraag/zorgvraag.component';
 import { ToestemmingComponent } from '../content/toestemming/toestemming.component';
 import { IndienenComponent } from '../content/indienen/indienen.component';
 import { FormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
-    const spyRouter = jasmine.createSpyObj('ActivatedRoute', ['navigate']);
+    let spyRouter = jasmine.createSpyObj('Router', ['navigate']);
 
     TestBed.configureTestingModule({
       declarations: [ 
@@ -39,7 +40,8 @@ describe('HomeComponent', () => {
         FormsModule
       ],
       providers: [
-        {provide: ActivatedRoute, useValue: spyRouter}
+        {provide: ActivatedRoute, useValue: { 'params': of([{'menu' : 'personlijk'}]) }},
+        {provide: Router, useValue: spyRouter }
       ]
     })
     .compileComponents();
